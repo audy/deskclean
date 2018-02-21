@@ -32,7 +32,7 @@ func main() {
 		"textfiles": regexp.MustCompile(`.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf)$`),
 		"data":      regexp.MustCompile(`.(ab1|csv|sam|fasta|fastq|fa|fna|faa|gbk?|gbf|gff|aln|zip|tar.gz|xlsx?|sqlite|json?)$`),
 		"scripts":   regexp.MustCompile(`.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|ipynb)$`),
-		"images":    regexp.MustCompile(`.*\\.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai)$`),
+		"images":    regexp.MustCompile(`.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai)$`),
 	}
 
 	home := getHomeDirectory()
@@ -46,13 +46,20 @@ func main() {
 	for _, f := range files {
 		filepath := path.Join(home, "Desktop", f.Name())
 
+		matched := false
+
 		if !isDirectory(filepath) {
 			for dir, re := range filetypes {
 				matches := re.MatchString(filepath)
 				if matches {
-					log.Print(filepath)
+					matched = true
 					log.Print(dir)
+					log.Print(filepath)
 				}
+			}
+			if !matched {
+				log.Print("unmatched")
+				log.Print(filepath)
 			}
 		}
 
