@@ -1,4 +1,9 @@
 # DeskClean
 
-Keep your ~/Desktop tidy!
+Keep your `~/Desktop` tidy!
 
+## Usage
+
+```sh
+$ deskclean
+```
