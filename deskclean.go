@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -15,8 +16,8 @@ func getHomeDirectory() string {
 }
 
 // check if path is directory
-func isDirectory(filepath string) bool {
-	file, err := os.Stat(filepath)
+func isDirectory(origin string) bool {
+	file, err := os.Stat(origin)
 
 	if err != nil {
 		log.Fatal(err)
@@ -44,22 +45,25 @@ func main() {
 	}
 
 	for _, f := range files {
-		filepath := path.Join(home, "Desktop", f.Name())
+		origin := path.Join(home, "Desktop", f.Name())
 
 		matched := false
 
-		if !isDirectory(filepath) {
+		if !isDirectory(origin) {
 			for dir, re := range filetypes {
-				matches := re.MatchString(filepath)
+				matches := re.MatchString(origin)
 				if matches {
 					matched = true
-					log.Print(dir)
-					log.Print(filepath)
+					destination := path.Join(home, "Desktop", dir, f.Name())
+					fmt.Printf("-> %s -> %s\n", origin, destination)
+					err := os.Rename(origin, destination)
+					if err != nil {
+						log.Fatal(fmt.Sprintf("xx %s -> %s", origin, destination))
+					}
 				}
 			}
 			if !matched {
-				log.Print("unmatched")
-				log.Print(filepath)
+				fmt.Printf("?? %s\n", origin)
 			}
 		}
 
