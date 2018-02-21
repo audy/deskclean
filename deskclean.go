@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
+  "regexp"
 	"log"
 	"os"
 	"os/user"
@@ -27,9 +27,16 @@ func isDirectory(filepath string) bool {
 
 func main() {
 
-	home := getHomeDirectory()
+  // directory name -> regular expression that captures it
+  filetypes := map[string]*regexp.Regexp{
+    "test": regexp.MustCompile(`.txt$`),
+//    "data": regexp.MustCompile(`.*\\.(ab1|csv|sam|fasta|fastq|fa|fna|faa|gbk?|gbf|gff|aln|zip|tar\\.gz|xlsx?|sqlite|json?)(\\.gz)?$`),
+//    "textfiles": regexp.MustCompile(`.*\\.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf)$`),
+//    "scripts": regexp.MustCompile(`.*\\.(rmd|sql|pl|py|sh|rb|js|ts|coffee|c|r|ipynb)$`),
+//    "images": regexp.MustCompile(`.*\\.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai)$`),
+  }
 
-	fmt.Println(home)
+	home := getHomeDirectory()
 
 	files, err := ioutil.ReadDir(path.Join(home, "Desktop"))
 
@@ -39,10 +46,15 @@ func main() {
 
 	for _, f := range files {
 		filepath := path.Join(home, "Desktop", f.Name())
-		fmt.Println(filepath)
 
-		if isDirectory(filepath) {
-			fmt.Println(filepath)
+		if !isDirectory(filepath) {
+      for dir, re := range filetypes {
+        matches := re.MatchString(filepath)
+        if matches {
+          log.Print(filepath)
+          log.Print(dir)
+        }
+      }
 		}
 
 	}
