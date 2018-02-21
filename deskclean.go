@@ -75,7 +75,13 @@ func main() {
 				matches := re.MatchString(origin)
 				if matches {
 					matched = true
-					destination := path.Join(args["path"], dir, f.Name())
+					destinationDirectory := path.Join(args["path"], dir)
+
+					// make destination directory
+					// will not fail if directory already exists
+					os.Mkdir(destinationDirectory, os.FileMode(0700))
+
+					destination := path.Join(destinationDirectory, f.Name())
 					fmt.Printf("-> %s -> %s\n", origin, destination)
 					err := os.Rename(origin, destination)
 					if err != nil {
