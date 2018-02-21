@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -36,22 +37,36 @@ func getFileTypes() map[string]*regexp.Regexp {
 	}
 }
 
+func parseArgs() map[string]string {
+
+	// default home directory: ~/Desktop
+	home := getHomeDirectory()
+	desktop := path.Join(home, "Desktop")
+
+	path := flag.String("path", desktop, "path to clean")
+
+	flag.Parse()
+
+	return map[string]string{
+		"path": *path,
+	}
+}
+
 func main() {
 
 	// parse arguments
+	args := parseArgs()
 
 	filetypes := getFileTypes()
 
-	home := getHomeDirectory()
-
-	files, err := ioutil.ReadDir(path.Join(home, "Desktop"))
+	files, err := ioutil.ReadDir(args["path"])
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, f := range files {
-		origin := path.Join(home, "Desktop", f.Name())
+		origin := path.Join(args["path"], f.Name())
 
 		matched := false
 
@@ -60,11 +75,11 @@ func main() {
 				matches := re.MatchString(origin)
 				if matches {
 					matched = true
-					destination := path.Join(home, "Desktop", dir, f.Name())
+					destination := path.Join(args["path"], dir, f.Name())
 					fmt.Printf("-> %s -> %s\n", origin, destination)
 					err := os.Rename(origin, destination)
 					if err != nil {
-						log.Fatal(fmt.Sprintf("xx %s -> %s", origin, destination))
+						log.Fatal(fmt.Sprintf("xx %s -> %s\n", origin, destination))
 					}
 				}
 			}
