@@ -1,4 +1,4 @@
-default:
+deskclean:
 	go fmt
 	go build
 
@@ -10,3 +10,6 @@ test:
 	touch test-desktop/data.fasta
 	./deskclean -path test-desktop
 	rm -rf test-desktop/
+
+install: deskclean
+	cp deskclean /usr/local/bin/deskclean
