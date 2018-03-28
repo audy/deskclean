@@ -2,6 +2,14 @@
 
 Keep your `~/Desktop` tidy!
 
+# Installation
+
+## via Homebrew
+
+```sh
+brew install https://raw.githubusercontent.com/audy/homebrew-formulae/master/deskclean.rb
+```
+
 ## Usage
 
 ```sh
