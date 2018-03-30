@@ -20,8 +20,8 @@ $ deskclean
 
 Run `deskclean -h` for help:
 
-```
+```sh
 Usage of ./deskclean:
   -path string
-        path to clean (default "/Users/austin/Desktop")
+        path to clean (default "$HOME/Desktop")
 ```
