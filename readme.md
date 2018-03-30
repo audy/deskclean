@@ -2,6 +2,8 @@
 
 Keep your `~/Desktop` tidy!
 
+Deskclean moves files on your `~/Desktop` to sub-directories based on their file extensions.
+
 # Installation
 
 ## via Homebrew
