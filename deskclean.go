@@ -38,7 +38,6 @@ func getFileTypes() map[string]*regexp.Regexp {
 }
 
 func parseArgs() map[string]string {
-
 	// default home directory: ~/Desktop
 	home := getHomeDirectory()
 	desktop := path.Join(home, "Desktop")
@@ -53,7 +52,6 @@ func parseArgs() map[string]string {
 }
 
 func main() {
-
 	// parse arguments
 	args := parseArgs()
 
