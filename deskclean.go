@@ -32,7 +32,7 @@ func getFileTypes() map[string]*regexp.Regexp {
 	return map[string]*regexp.Regexp{
 		"textfiles": regexp.MustCompile(`.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf)$`),
 		"data":      regexp.MustCompile(`.(ab1|csv|sam|fasta|fastq|fa|fna|faa|gbk?|gbf|gff|aln|zip|tar.gz|xlsx?|sqlite|json?)$`),
-		"scripts":   regexp.MustCompile(`.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|ipynb)$`),
+		"scripts":   regexp.MustCompile(`.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|R|ipynb)$`),
 		"images":    regexp.MustCompile(`.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai)$`),
 	}
 }
