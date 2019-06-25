@@ -30,7 +30,7 @@ func isDirectory(origin string) bool {
 func getFileTypes() map[string]*regexp.Regexp {
 	// directory name -> regular expression that captures it
 	return map[string]*regexp.Regexp{
-		"textfiles": regexp.MustCompile(`.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf)$`),
+		"textfiles": regexp.MustCompile(`.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf|log)$`),
 		"data":      regexp.MustCompile(`.(ab1|csv|sam|fasta|fastq|fa|fna|faa|gbk?|gbf|gff|numbers|aln|zip|tar.gz|xlsx?|sqlite|json?)$`),
 		"scripts":   regexp.MustCompile(`.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|R|ipynb)$`),
 		"images":    regexp.MustCompile(`.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai)$`),
