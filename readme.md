@@ -10,7 +10,7 @@ Deskclean moves files on your `~/Desktop` to sub-directories based on their file
 
 ```sh
 brew tap audy/deskclean https://github.com/audy/deskclean
-brew install deskclean
+brew install deskclean/deskclean/deskclean
 ```
 
 ## Usage
