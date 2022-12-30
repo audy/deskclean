@@ -3,7 +3,7 @@ class Deskclean < Formula
   homepage "https://github.com/audy/deskclean"
   url "https://github.com/audy/deskclean/archive/refs/tags/0.1.2.tar.gz"
   version "0.1.2"
-  sha256 "3249b6553492ba3097f1a24da3ba936b81596bd2"
+  sha256 "c36ab3e307ee6cec01e913a3d0aedfb7742049368025ff3c8b284a65efa9fcd5"
   license "MIT"
 
   depends_on "go" => :build
