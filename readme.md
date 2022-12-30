@@ -9,7 +9,8 @@ Deskclean moves files on your `~/Desktop` to sub-directories based on their file
 ## via Homebrew
 
 ```sh
-brew install https://raw.githubusercontent.com/audy/homebrew-formulae/master/deskclean.rb
+brew tap audy/deskclean https://github.com/audy/deskclean
+brew install deskclean
 ```
 
 ## Usage
