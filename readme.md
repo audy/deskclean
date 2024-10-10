@@ -26,3 +26,22 @@ Usage of ./deskclean:
   -path string
         path to clean (default "$HOME/Desktop")
 ```
+
+## Config
+
+Deskclean can be configured via `~/.config/deskclean/config.toml`. By default,
+Deskclean uses the following config:
+
+```
+[textfiles]
+pattern = ".*\\.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf|log)$"
+
+[data]
+pattern = ".*\\.(ab1|csv|sam|fasta|fastq|fa|fna|faa|gbk?|gbf|gff|numbers|aln|zip|tar.gz|xlsx?|sqlite|json?)$"
+
+[scripts]
+pattern = ".*\\.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|R|ipynb)$"
+
+[images]
+pattern = ".*\\.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai|webp)$"
+```
