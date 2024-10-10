@@ -33,7 +33,7 @@ jobs:
         run: ls -l
 
       - name: Upload Deskclean binaries
-        uses: sventaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
