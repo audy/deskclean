@@ -1,4 +1,4 @@
-# DeskClean [![Build Status](https://travis-ci.org/audy/deskclean.svg?branch=master)](https://travis-ci.org/audy/deskclean)
+# Deskclean [![Go](https://github.com/audy/deskclean/actions/workflows/go.yml/badge.svg)](https://github.com/audy/deskclean/actions/workflows/go.yml)
 
 Keep your `~/Desktop` tidy!
 
