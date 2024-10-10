@@ -6,12 +6,7 @@ Deskclean moves files on your `~/Desktop` to sub-directories based on their file
 
 # Installation
 
-## via Homebrew
-
-```sh
-brew tap audy/deskclean https://github.com/audy/deskclean
-brew install deskclean
-```
+Grab a binary from the [latest release](https://github.com/audy/deskclean)
 
 ## Usage
 
@@ -45,3 +40,6 @@ pattern = ".*\\.(rmd|go|sql|pl|py|sh|rb|js|ts|coffee|c|r|R|ipynb)$"
 [images]
 pattern = ".*\\.(svg|jpe?g|png|gif|gifv|bmp|mp4|mov|m4v|ai|webp)$"
 ```
+
+In this example, files that end in `.pdf` will be moved to
+`~/Desktop/textfiles`, etc...
