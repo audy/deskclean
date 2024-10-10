@@ -32,7 +32,7 @@ Usage of ./deskclean:
 Deskclean can be configured via `~/.config/deskclean/config.toml`. By default,
 Deskclean uses the following config:
 
-```
+```toml
 [textfiles]
 pattern = ".*\\.(rtf|rtfd|md|txt|docx?|rtf|html?|pdf|log)$"
 
