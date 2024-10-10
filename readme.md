@@ -6,7 +6,7 @@ Deskclean moves files on your `~/Desktop` to sub-directories based on their file
 
 # Installation
 
-Grab a binary from the [latest release](https://github.com/audy/deskclean)
+Grab a binary from the [latest release](https://github.com/audy/deskclean/releases/latest)
 
 ## Usage
 
