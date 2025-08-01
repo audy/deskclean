@@ -8,6 +8,12 @@ Deskclean moves files on your `~/Desktop` to sub-directories based on their file
 
 Grab a binary from the [latest release](https://github.com/audy/deskclean/releases/latest)
 
+## Homebrew
+
+```bash
+brew install audy/tap/deskclean
+```
+
 ## Usage
 
 ```sh
